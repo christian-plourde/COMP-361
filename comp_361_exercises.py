@@ -71,9 +71,18 @@ def determinant(a):
     if(rowA == 2):
         return a[0,0]*a[1,1] - a[0,1]*a[1,0]
 
-    #recursive case
+    # recursive case
+    # we have to build the matrix containing everything but the row and column we are ignoring
     det = 0
-    #TODO
+    for mat in range(colA)
+    # we need a number of new matrices equal to the number of columns that we have
+        for col in range(colA)
+        #for each column we have to create the matrix of everything excluding the col and row where
+        #we are located
+        
+            row = 1 #start at the second row
+            for row in range(rowA - 1) #since we are looking at each row except the first one
+
 
 
 
