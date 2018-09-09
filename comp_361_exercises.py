@@ -70,22 +70,30 @@ def determinant(a):
     #the base case
     if(rowA == 2):
         return a[0,0]*a[1,1] - a[0,1]*a[1,0]
-
     # recursive case
     # we have to build the matrix containing everything but the row and column we are ignoring
     det = 0
-    for mat in range(colA)
-    # we need a number of new matrices equal to the number of columns that we have
-        for col in range(colA)
-        #for each column we have to create the matrix of everything excluding the col and row where
-        #we are located
-        
-            row = 1 #start at the second row
-            for row in range(rowA - 1) #since we are looking at each row except the first one
+    for mat in range(colA):
+        # we need a number of new matrices equal to the number of columns that we have
+        subMat = zeros((rowA - 1, colA -1))
+        for col in range(colA):
+            #for each column we have to create the matrix of everything excluding the col and row where
+            #we are located
+            if col == mat: #if we are on the column equal to the matrix iteration, then we skip it
+                continue
+            for row in range(1, rowA): #since we are looking at each row except the first one
+                if col < mat:
+                    subMat[row - 1, col] = a[row,col]
+                else:
+                    subMat[row - 1, col - 1] = a[row,col]
+        det += (-1)**mat*a[0,mat]*determinant(subMat)
+    return det
 
 
 
 
-a = array([[1,2],[3,4]])
+a = array([[2.1,-0.6,1.1],[3.2,4.7,-0.8],[3.1,-6.5,4.1]])
 print("Exercise 3 output:")
 print(determinant(a))
+
+
